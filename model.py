@@ -78,7 +78,7 @@ class BertForMultiLabelClassification(nn.Module):
 
 
 # training function
-def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, start_epoch=0, num_epochs=5, save_path="bert_model.pth"):
+def train_model(model, train_loader, criterion, optimizer, scheduler, start_epoch=0, num_epochs=5, save_path="bert_model.pth"):
     for epoch in range(start_epoch, num_epochs):
         model.train()
         total_loss = 0
@@ -134,10 +134,8 @@ print(torch.cuda.is_available())
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
 train_dataset = TextClassificationDataset('train.txt', tokenizer)
-val_dataset = TextClassificationDataset('validation.txt', tokenizer)
 
 train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False)
 
 for batch in train_loader:
     print(batch)
@@ -170,5 +168,5 @@ else:
     print(f"No saved model was found at {checkpoint_path}. Starting training from scratch.")
     start_epoch = 0
 
-train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, start_epoch, num_epochs=5)
+train_model(model, train_loader, criterion, optimizer, scheduler, start_epoch, num_epochs=5)
 
