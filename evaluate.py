@@ -13,8 +13,8 @@ print(f'Evaluating {RESULTS} based on {TRUTH}')
 
 def maybe_gz_open(path):
     if path.endswith('.gz'):
-        return gzip.open(path, 'rt')
-    return open(path)
+        return gzip.open(path, 'rt', encoding='utf-8')
+    return open(path, 'r', encoding='utf-8')
 
 
 results = {}
