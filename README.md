@@ -1,6 +1,6 @@
-# Repository for ss24.2.5/team204
+# Repository for AI Project 2.5
 
-**Topic:** SS24 Assignment 2.5: Classify Math Publications
+**Topic:** SS24 Assignment 2.5: [Classify Math Publications](https://kwarc.info/teaching/AISysProj/SS24/assignment-2.5.pdf)
 
 ## Requirements
 
